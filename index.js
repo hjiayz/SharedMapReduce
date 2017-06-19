@@ -66,7 +66,7 @@ class SharedMapReduce {
     return new Promise(function (resolve, reject) {
       let output = new self.data.constructor(new SharedArrayBuffer(self.data.buffer.byteLength));
       let cb = () => resolve(output);
-      compiledfunc.run([self.data, output], [self.data.buffer, output.buffer], cb, reject);
+      compiledfunc.run([self.data, output], [], cb, reject);
     });
   }
   reduce(compiledfunc) {
@@ -76,7 +76,7 @@ class SharedMapReduce {
       let status = new Int32Array(new SharedArrayBuffer(cpus << 1));
       //status.fill(0);
       let cb = () => resolve(output[0]);
-      compiledfunc.run([self.data, output, status], [self.data.buffer, output.buffer, status.buffer], cb, reject);
+      compiledfunc.run([self.data, output, status], [], cb, reject);
     });
   }
   mapreduce(compiledfuncmapfunc, compiledfuncreducefunc, init) {

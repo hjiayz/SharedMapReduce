@@ -185,7 +185,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var cb = function cb() {
 	          return resolve(output);
 	        };
-	        compiledfunc.run([self.data, output], [self.data.buffer, output.buffer], cb, reject);
+	        compiledfunc.run([self.data, output], [], cb, reject);
 	      });
 	    }
 	  }, {
@@ -199,7 +199,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var cb = function cb() {
 	          return resolve(output[0]);
 	        };
-	        compiledfunc.run([self.data, output, status], [self.data.buffer, output.buffer, status.buffer], cb, reject);
+	        compiledfunc.run([self.data, output, status], [], cb, reject);
 	      });
 	    }
 	  }, {
